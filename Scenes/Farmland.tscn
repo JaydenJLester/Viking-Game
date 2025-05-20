@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://blsxklxwwpjul"]
 
-[ext_resource type="PackedScene" uid="uid://2pddflqav00q" path="res://Scenes/player.tscn" id="1_8i2rj"]
+[ext_resource type="PackedScene" uid="uid://b8i3rxqikw2rk" path="res://Scenes/player.tscn" id="1_8i2rj"]
 [ext_resource type="Script" path="res://Scenes/farmland.gd" id="1_txdqd"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_f21rn"]
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_vs6ti"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Scenes/daynightcycle.gd" id="7_6jssx"]
 [ext_resource type="Texture2D" uid="uid://bkpc1kjm4t2xn" path="res://assets/daynightcycle-gradient-texture.tres" id="8_7vb15"]
 [ext_resource type="PackedScene" uid="uid://cpxmq0biqo6ri" path="res://day_night_cycle_ui.tscn" id="9_s68am"]
+[ext_resource type="PackedScene" uid="uid://bg8vqeiytwn5p" path="res://Scenes/SellBin.tscn" id="10_6uchf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bwdh"]
 texture = ExtResource("2_kv58d")
@@ -312,3 +313,7 @@ gradient_texture = ExtResource("8_7vb15")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DayNightCycleUI" parent="CanvasLayer" instance=ExtResource("9_s68am")]
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="SellBin" parent="Interactables" instance=ExtResource("10_6uchf")]
+position = Vector2(1312, 64)

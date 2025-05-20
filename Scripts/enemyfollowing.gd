@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 100.0
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var enemy_sprite_2d: AnimatedSprite2D = $Enemy_CollisionShape2D/Enemy_AnimatedSprite2D
 @onready var player: Node2D = null
 
 func _ready():
@@ -12,10 +13,14 @@ func _ready():
 func _physics_process(delta):
 	if player:
 		nav_agent.target_position = player.global_position  
-
+		
 	if nav_agent.is_navigation_finished():
 		return  
-
+	if velocity.x < 0:
+		enemy_sprite_2d.flip_h = true
+	if velocity.x > 0:
+		enemy_sprite_2d.flip_h = false
+	
 	var next_path_position = nav_agent.get_next_path_position()  
 	var direction = (next_path_position - global_position).normalized()
 	velocity = direction * speed
